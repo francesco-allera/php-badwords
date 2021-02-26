@@ -1,15 +1,20 @@
 <?php
 
-$paragraph = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, officia blanditiis? Alias doloremque est nesciunt quis, voluptatum quia. Et consectetur ipsam velit aspernatur quas magnam? Repudiandae quae vero earum praesentium?";
+  $paragraph = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, officia blanditiis? Alias doloremque est nesciunt quis, voluptatum quia. Et consectetur ipsam velit aspernatur quas magnam? Repudiandae quae vero earum praesentium?";
 
-$length = strlen($paragraph);
+  $lengthParagraph = strlen($paragraph);
 
-$badword = $_GET["badword"];
+  $badword = strtolower($_GET["badword"]);
 
-$paragraphStrToLower = strtolower($paragraph);
-$badwordStrToLower = strtolower($badword);
+  $dot = "";
 
-$newParagraph = str_replace($badwordStrToLower, "***", $paragraphStrToLower);
+  for ($i = 0; $i < strlen($badword); $i++) {
+    $dot .= "*";
+  }
+
+  $paragraphStrToLower = strtolower($paragraph);
+
+  $newParagraph = str_replace($badword, $dot, $paragraphStrToLower);
 
 ?>
 
@@ -23,18 +28,18 @@ $newParagraph = str_replace($badwordStrToLower, "***", $paragraphStrToLower);
 </head>
 <body>
 
-<h3>Questo è il paragrafo preso dalla variabile in PHP:</h3>
-<p> <?php echo $paragraph ?> </p>
+  <h3>Questo è il paragrafo preso dalla variabile in PHP:</h3>
+  <p> <?php echo $paragraph ?> </p>
 
-<h3>Il paragrafo preso da PHP ha lunghezza:</h3>
-<h4> <?php echo $length ?> </h4>
+  <h3>Il paragrafo preso da PHP ha lunghezza:</h3>
+  <h2> <?php echo $lengthParagraph ?> </h2>
 
-<h3>La parola presa da $_GET["badword"] è :</h3>
-<h4> <?php echo $badword ?> </h4>
+  <h3>La parola presa da $_GET["badword"] è :</h3>
+  <h2> <?php echo $badword ?> </h2>
 
-<h3>E sostituisce la parola proita con dei ***</h3>
+  <h3>E sostituisce la parola proibita con dei puntini:</h3>
 
-<p> <?php echo $newParagraph ?> </p>
+  <p> <?php echo $newParagraph ?> </p>
 
 </body>
 </html>
