@@ -11,5 +11,3 @@ First approach with PHP (MAMP, tags, variables, echo, GET parameters, string met
 
 Create a variable with a paragraph of text.
 Display on the screen the paragraph with the relative length and replace the badword passed in GET with three \*.
-
-[See the page](https://php-badwords.herokuapp.com/)
